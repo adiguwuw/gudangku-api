@@ -20,4 +20,4 @@ RUN curl -sS https://getcomposer.org/installer | php \
 EXPOSE 8080
 
 # Run Laravel
-CMD php artisan config:clear && php artisan config:cache && php artisan serve --host=0.0.0.0 --port=${PORT}
+CMD php artisan config:clear && php artisan cache:clear && php artisan serve --host=0.0.0.0 --port=${PORT}
