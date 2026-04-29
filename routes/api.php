@@ -14,6 +14,14 @@ Route::prefix('v1')->group(function () {
     Route::post('/login', [AuthController::class, 'login'])->middleware('throttle:10,1');
     Route::post('/register', [AuthController::class, 'register'])->middleware('throttle:5,1');
 
+    Route::get('/debug-db', function () {
+        return [
+            'default' => config('database.default'),
+            'host' => config('database.connections.mysql.host'),
+            'database' => config('database.connections.mysql.database'),
+        ];
+    });
+
     // 🔐 PROTECTED
     Route::middleware(['auth:sanctum', 'throttle:60,1'])->group(function () {
 
