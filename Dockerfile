@@ -4,7 +4,7 @@ FROM php:8.2-cli
 RUN apt-get update && apt-get install -y \
     libzip-dev zip unzip \
     libicu-dev \
-    && docker-php-ext-install intl zip
+    && docker-php-ext-install intl zip pdo pdo_mysql
 
 # Set working directory
 WORKDIR /app
